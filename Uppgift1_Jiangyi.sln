@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uppgift_Jiang", "Uppgift1_Jiangyi\Uppgift_Jiang.csproj", "{21C7DAB1-E22D-401C-91C8-5BCFFFD3FFD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biograf", "Biograf\Biograf.csproj", "{5CBEA8BA-F309-43BD-B0B0-B01F9EC52215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{21C7DAB1-E22D-401C-91C8-5BCFFFD3FFD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21C7DAB1-E22D-401C-91C8-5BCFFFD3FFD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21C7DAB1-E22D-401C-91C8-5BCFFFD3FFD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CBEA8BA-F309-43BD-B0B0-B01F9EC52215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CBEA8BA-F309-43BD-B0B0-B01F9EC52215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CBEA8BA-F309-43BD-B0B0-B01F9EC52215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CBEA8BA-F309-43BD-B0B0-B01F9EC52215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
