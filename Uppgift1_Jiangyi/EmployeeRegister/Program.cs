@@ -1,4 +1,4 @@
-﻿namespace Uppgift1_Jiangyi
+﻿namespace Uppgift_Jiang.Employee
 {
     internal class Program
     {
@@ -11,7 +11,7 @@
         static void Main(string[] args)
         {
             //ask for employ input
-            
+
             ProgramOptions();
 
         }
@@ -53,12 +53,12 @@
                 Console.WriteLine("Input is not a valid integer");
             }
         }//end of Program Options
-       public static void SignUp()
+        public static void SignUp()
         {
             Console.WriteLine("Name of the employ");
             string name = Console.ReadLine() ?? "";
             //make sure that the name input is not null or ""
-            if(string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(name))
             {
                 Console.WriteLine("You haven't write anything, try again");
                 SignUp();
@@ -66,22 +66,22 @@
             Console.WriteLine("Salary of the employ");
             int salary;
             if (int.TryParse(Console.ReadLine(), out salary))
-                {
-                    //successfully convert string to int
-                    //store it to employList
-                    employList.Add(name, salary);
+            {
+                //successfully convert string to int
+                //store it to employList
+                employList.Add(name, salary);
 
-                }
-                else
-                {
-                    Console.WriteLine("Write in the right salary");
-                }
-            
+            }
+            else
+            {
+                Console.WriteLine("Write in the right salary");
+            }
+
             ProgramOptions();
 
         }// end of Sighup
 
-       public static void ShowUp()
+        public static void ShowUp()
         {
             if (employList.Count > 0)
             {
@@ -92,7 +92,7 @@
                 }
                 Console.WriteLine("************************************");
             }
-            
+
             ProgramOptions();
         } // end of ShowUp
     }
