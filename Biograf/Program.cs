@@ -19,8 +19,8 @@
             uint number = UserInputHelper.AskForUInt($"You have reached the main menu. To navigate, please enter numbers to test various functions." +
                    $"\n" + "1: Check Price(Youth, Pensioner or Standard)" +
                      $"\n" + "2: Calculate the price for an entire party" +
-                     $"\n" + "3: Repeat ten times"+
-                     $"'\n"+ "4: Print the third word"+
+                     $"\n" + "3: Repeat ten times" +
+                     $"'\n" + "4: Print the third word" +
                        $"\n" + "0: Close app");
             //saft convert string to int          
             switch (number)
@@ -50,7 +50,11 @@
         public static void CheckAge()
         {
             uint age = UserInputHelper.AskForUInt("Enter Age");
-            if (age < 20)
+            if (age < 5 || age > 100)
+            {
+                Console.WriteLine("Free enter!");
+            }
+            else if (age < 20)
             {
                 Console.WriteLine("Youth Price: 80kr");
             }
@@ -69,17 +73,22 @@
         public static uint CheckPrice()
         {
             uint age = UserInputHelper.AskForUInt("");
-            if (age < 20)
+
+            if (age < 5 || age > 100)
+            {
+                return 0;
+            }
+            else if (age >= 5 && age < 20)
             {
                 return 80;
             }
-            else if (age > 64)
+            else if (age >= 20 && age < 80)
             {
-                return 90;
+                return 120;
             }
             else
             {
-                return 120;
+                return 90;
             }
         }
         //Calculate Group price for user
@@ -100,31 +109,31 @@
         //Get string input from user and repeat it ten times
         public static void Repeat()
         {
-            string text = UserInputHelper.AskForString("Feel free to write something");       
-        
-                for(int i = 0; i <10; i++)
-                {
-                    Console.Write($"{i+1}.{text} ");
-                }
-                Console.WriteLine("");
-            
+            string text = UserInputHelper.AskForString("Feel free to write something");
+
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"{i + 1}.{text} ");
+            }
+            Console.WriteLine("");
+
         }
         //Get a sentence from user and print out the third word
         //Using StringSplitOptions.RemoveEmptyEntries to prevent multipel spaces between words
         public static void ThirdWord()
         {
             string text = UserInputHelper.AskForString("Enter a sentence of at least 3 words");
-            var textS = text.Split(' ',StringSplitOptions.RemoveEmptyEntries);
-           
-            if(textS.Length >= 3)
+            var textS = text.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            if (textS.Length >= 3)
             {
-                Console.WriteLine(textS[2]);            
+                Console.WriteLine(textS[2]);
             }
             else
             {
                 Console.WriteLine("Sentence should contains at least 3 words");
             }
-           
+
 
         }
 
