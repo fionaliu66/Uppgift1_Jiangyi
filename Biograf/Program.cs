@@ -15,8 +15,8 @@
 
         public static void Meny()
         {
-            uint number = AskForInt($"You have reached the main menu. To navigate, please enter numbers to test various functions." +
-                   $"\n" + "1: Check Price(Youth,Pensioner or Standard)" +
+            uint number = UserInputHelper.AskForUInt($"You have reached the main menu. To navigate, please enter numbers to test various functions." +
+                   $"\n" + "1: Check Price(Youth, Pensioner or Standard)" +
                      $"\n" + "2: Calculate the price for an entire party" +
                      $"\n" + "3: Repeat ten times"+
                        $"\n" + "0: Close app");
@@ -32,6 +32,9 @@
                 case 3:
                     Repeat();
                     break;
+                case 4:
+                    ThirdWord();
+                    break;
                 case 0:
                     Environment.Exit(0);
                     break;
@@ -44,7 +47,7 @@
 
         public static void CheckAge()
         {
-            uint age = AskForInt("Enter Age");
+            uint age = UserInputHelper.AskForUInt("Enter Age");
             if (age < 20)
             {
                 Console.WriteLine("Youth Price: 80kr");
@@ -60,7 +63,7 @@
         }//CheckAge();
         public static uint CheckPris()
         {
-            uint age = AskForInt("Enter Age");
+            uint age = UserInputHelper.AskForUInt("");
             if (age < 20)
             {
                 return 80;
@@ -74,34 +77,10 @@
                 return 120;
             }
         }
-        public static uint AskForInt(string message)
-        {
-            bool success = false;
-            string answer;
-            uint result = 0;
-            do
-            {
-                Console.WriteLine($"{message}");
-                answer = Console.ReadLine() ?? "";
-                if (!string.IsNullOrEmpty(answer))
-                {
-                    if (uint.TryParse(answer, out result))
-                    {
-                        success = true;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("You must enter a valid number");
-                    success = false;
-                }
-            } while (!success);
 
-            return result;
-        }
         public static void CalculatePrice()
         {
-            uint numOfpeople = AskForInt("How many people are with you today?");
+            uint numOfpeople = UserInputHelper.AskForUInt("How many people are with you today?");
             uint totalPrice = 0;
             for (int i = 0; i < numOfpeople; i++)
             {
@@ -113,18 +92,26 @@
 
         public static void Repeat()
         {
-            string text = Console.ReadLine() ?? "";
+            Console.WriteLine("Feel free to write something");
+            string text = Console.ReadLine() ?? "";       
             if (string.IsNullOrEmpty(text))
             {
                 Console.WriteLine("Invalid input");
             }
             else
             {
-
+                for(int i = 0; i <10; i++)
+                {
+                    Console.Write($"{i+1}.{text} ");
+                }
+                Console.WriteLine("");
             }
         }
 
+        public static void ThirdWord()
+        {
 
+        }
 
     }
 }
