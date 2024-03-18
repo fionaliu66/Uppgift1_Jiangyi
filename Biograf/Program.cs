@@ -20,7 +20,7 @@
                    $"\n" + "1: Check Price(Youth, Pensioner or Standard)" +
                      $"\n" + "2: Calculate the price for an entire party" +
                      $"\n" + "3: Repeat ten times" +
-                     $"'\n" + "4: Print the third word" +
+                     $"\n" + "4: Print the third word" +
                        $"\n" + "0: Close app");
             //saft convert string to int          
             switch (number)
