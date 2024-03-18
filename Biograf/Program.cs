@@ -26,7 +26,9 @@
             switch (number)
             {
                 case 1:
-                    CheckAge();
+                    //CheckAge();
+                    uint price = CheckAgeAndPrice(out string message);
+                    Console.WriteLine(message);
                     break;
                 case 2:
                     CalculatePrice();
@@ -45,52 +47,75 @@
                     break;
             }
         }//Meny()
-
-        //Same logic as CheckPrice but print out price in text
-        public static void CheckAge()
+        public static uint CheckAgeAndPrice(out string message)
         {
             uint age = UserInputHelper.AskForUInt("Enter Age");
             if (age < 5 || age > 100)
             {
-                Console.WriteLine("Free enter!");
-            }
-            else if (age < 20)
-            {
-                Console.WriteLine("Youth Price: 80kr");
-            }
-            else if (age > 64)
-            {
-                Console.WriteLine("Pensioner Price: 90kr");
-            }
-            else
-            {
-                Console.WriteLine("Standard Prics: 120kr");
-            }
-        }//CheckAge();
-
-        //Check Price for individual
-        //could handle exceptions here or in UserinputHelper
-        public static uint CheckPrice()
-        {
-            uint age = UserInputHelper.AskForUInt("");
-
-            if (age < 5 || age > 100)
-            {
+                message = "Free Enter";
                 return 0;
             }
             else if (age >= 5 && age < 20)
             {
+                message = "Youth Price: 80kr";
                 return 80;
             }
             else if (age >= 20 && age < 80)
             {
+                message = "Standard Prics: 120kr";
                 return 120;
             }
             else
             {
+                message = "Pensioner Price: 90kr";
                 return 90;
             }
         }
+        //Same logic as CheckPrice but print out price in text
+        //public static void CheckAge()
+        //{
+        //    uint age = UserInputHelper.AskForUInt("Enter Age");
+        //    if (age < 5 || age > 100)
+        //    {
+        //        Console.WriteLine("Free enter!");
+        //    }
+        //    else if (age < 20)
+        //    {
+        //        Console.WriteLine("Youth Price: 80kr");
+        //    }
+        //    else if (age > 64)
+        //    {
+        //        Console.WriteLine("Pensioner Price: 90kr");
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Standard Prics: 120kr");
+        //    }
+        //}//CheckAge();
+
+        //Check Price for individual
+        //could handle exceptions here or in UserinputHelper
+        //public static uint CheckPrice()
+        //{
+        //    uint age = UserInputHelper.AskForUInt("");
+
+        //    if (age < 5 || age > 100)
+        //    {
+        //        return 0;
+        //    }
+        //    else if (age >= 5 && age < 20)
+        //    {
+        //        return 80;
+        //    }
+        //    else if (age >= 20 && age < 80)
+        //    {
+        //        return 120;
+        //    }
+        //    else
+        //    {
+        //        return 90;
+        //    }
+        //}
         //Calculate Group price for user
         //Get user uint(positive) input about how many people are there in his/her group
         //Then, ask ages one by one, Check pris for individual and save price in totalPrice.
@@ -101,7 +126,7 @@
             for (int i = 0; i < numOfpeople; i++)
             {
                 Console.Write($"How old is the {i + 1} person?");
-                totalPrice += CheckPrice();
+                totalPrice += CheckAgeAndPrice(out string message);
             }
             Console.WriteLine($"The total price for you group is {totalPrice}kr.");
         }
